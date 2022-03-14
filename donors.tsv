@@ -1,50 +1,11 @@
-donor_id	donor_name
-1	Russia, Australia & West Countries
-3	East Asia
-4	China - EXIM Bank
-5	Kuwait Fund for Arab Economic Development
-9	Saudi Fund for Development
-10	EXIM Bank of India
-12	China Development Bank (CDB)
-13	China - Industrial & Commercial Bank
-17	East Asia - Japan
-26	Raiffeisen Bank International AG, Austria
-27	Export – Import Bank of the United States
-28	French Agency for Development
-29	Government of Spain
-30	Credit Agricole Corporate & Investment Bank of France
-31	Australia and New Zealand Banking Group (ANZ Bank)
-32	HSBC Bank
-33	BBVA Bank of Spain
-34	KBC Bank of Belgium
-35	Nordea Bank of Sweden
-36	Government of Russia
-37	EDCF EXIM Bank of Korea
-48	Agence Francaise De Development
-49	Calyon Credit Agricole CIB
-51	Co-op Centrale Raiffeisen - Boerenleenbank
-52	Deutsche Bank AG
-53	ERSTE Bank- Austria
-54	European Investment Bank
-55	Export Import Bank of Hungary
-56	Government of France
-57	Government of the Russian Federation
-58	Govt. of the Federal Republic of Germany
-59	HSBC (With Guarantee of EKF Denmark)
-60	HSBC Bank PLC (UK)
-61	ING Bank N.V.
-62	Kingdom of Spain
-63	Nordic Development Fund
-64	Raiffisen Zentral Bank
-65	Standard Chartered Bank(United Kingdom)
-66	UniCredit Bank Austria AG
-67	Export Finance Austria(EFA)
-69	Rabobank of the Netherlands
-70	Standard Chartered Bank (SCB) (UK)
-71	ING Bank of Netherlands
-72	Commercial Facility from BBVA Bank of Spain
-73	UK Export Finance (UKEF)
-74	UniCredit Bank Austria
-75	KFW, Germany
-76	European Investment Bank
-77	UKEF, Deutsche Bank & MuFG Bank
+donor_category	donor_id	donor_name
+multilateral	1	Russia, Australia & West Countries
+multilateral	2	Asian Development Bank
+multilateral	6	United Nations
+multilateral	7	World Bank
+multilateral	8	OPEC Fund for International Development (OFID)
+multilateral	11	Asian Infrastructure Investment Bank
+multilateral	18	IFAD
+multilateral	39	IBRD ( WB)
+multilateral	40	IDA(WB)
+multilateral	46	AIIB - Asian Infrastructure Investment Bank
