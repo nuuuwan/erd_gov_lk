@@ -80,7 +80,7 @@ def scrape_donor(donor_id, donor_name):
             'donor_id': donor_id,
             'donor_name': donor_name,
             'source_url': url,
-        } | parse_project(raw_project) | raw_project
+        } | parse_project(donor_id, donor_name, raw_project) | raw_project
         project_list.append(project)
 
     n_project_list = len(project_list)
