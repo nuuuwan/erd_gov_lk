@@ -1,9 +1,11 @@
 """Constants."""
+import os
 from urllib import parse
 
 CACHE_NAME = 'erd_gov_lk'
 CACHE_TIMEOUT = 3600
 
+DIR_ROOT = '/tmp/erd_gov_lk'
 URL_ERD = 'http://www.erd.gov.lk/index.php'
 
 URL_INDEX = URL_ERD + '?' + parse.urlencode({
@@ -16,8 +18,8 @@ URL_INDEX = URL_ERD + '?' + parse.urlencode({
     'lang': 'en',
 })
 
-DONOR_LIST_FILE = '/tmp/erd_gov_lk.donors.tsv'
-PROJECT_LIST_FILE = '/tmp/erd_gov_lk.projects.tsv'
+DONOR_LIST_FILE = os.path.join(DIR_ROOT, 'donors.tsv')
+PROJECT_LIST_FILE = os.path.join(DIR_ROOT, 'projects.tsv')
 
 CURRENCY_TO_TEXT_LIST = {
     'EUR': ['Euro'],
