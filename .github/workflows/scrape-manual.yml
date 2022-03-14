@@ -26,10 +26,11 @@ jobs:
     - name: Test
       uses: nuuuwan/python-repo-test@v1
 
-    - name: Run - Scrape
+    - name: Run - Scrape + Build GitHub Pages
       run: |
         export PYTHONPATH="$PYTHONPATH:./src"
         python src/erd_gov_lk/scrape.py
+        python src/erd_gov_lk/build_gh_pages.py
 
     - name: Checkout repo branch data
       uses: actions/checkout@v2
@@ -41,16 +42,11 @@ jobs:
       run: |
         git config --global user.email "${{ secrets.GIT_USER_EMAIL }}"
         git config --global user.name "${{ secrets.GIT_USER_NAME }}"
-        cp /tmp/erd_gov_lk/* .
+        cp /tmp/erd_gov_lk/data/* .
         echo "* $(date)" >> update.log
         git add .
         git commit -m "Updated data $(date)"
         git push origin data
-
-    - name: Run - Build GitHub Pages
-      run: |
-        export PYTHONPATH="$PYTHONPATH:./src"
-        python src/erd_gov_lk/build_gh_pages.py
 
     - name: Checkout repo branch gh-pages
       uses: actions/checkout@v2
@@ -62,8 +58,7 @@ jobs:
       run: |
         git config --global user.email "${{ secrets.GIT_USER_EMAIL }}"
         git config --global user.name "${{ secrets.GIT_USER_NAME }}"
-        cp /tmp/erd_gov_lk/index.html .
-        cp /tmp/erd_gov_lk/styles.css .
+        cp /tmp/erd_gov_lk/gh-pages/* .
         echo "* $(date)" >> update.log
         git add .
         git commit -m "Updated data $(date)"
