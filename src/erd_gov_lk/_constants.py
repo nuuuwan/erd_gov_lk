@@ -40,7 +40,7 @@ EXCHANGE_RATE_TO_USD = {
     'USD': 1,
 }
 
-COUNTRY_TO_TEXT_LIST = {
+COUNTRY_CODE_TO_TEXT_LIST = {
     'AT': ['Austria'],
     'AU': ['Australia'],
     'BE': ['Belgium'],
@@ -55,4 +55,21 @@ COUNTRY_TO_TEXT_LIST = {
     'SA': ['Saudi'],
     'SE': ['Sweden'],
     'US': ['United States'],
+}
+
+COUNTRY_CODE_TO_FLAG = {
+    'AT': '🇦🇹',
+    'AU': '🇦🇺',
+    'BE': '🇧🇪🇹',
+    'CN': '🇨🇳',
+    'ES': '🇪🇸🇹',
+    'FR': '🇫🇷',
+    'IN': '🇮🇳',
+    'JP': '🇯🇵',
+    'KR': '🇰🇷',
+    'KW': '🇰🇼',
+    'RU': '🇷🇺',
+    'SA': '🇸🇦',
+    'SE': '🇸🇪',
+    'US': '🇺🇸',
 }

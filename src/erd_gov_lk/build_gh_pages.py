@@ -1,11 +1,11 @@
 import math
 import os
 
-import flag
 from utils import tsv
 from utils.xmlx import _, style
 
-from erd_gov_lk._constants import DIR_GH_PAGES, PROJECT_LIST_FILE, URL_ERD
+from erd_gov_lk._constants import (COUNTRY_CODE_TO_FLAG, DIR_GH_PAGES,
+                                   PROJECT_LIST_FILE, URL_ERD)
 from erd_gov_lk._utils import log
 
 
@@ -21,8 +21,8 @@ def render_project(x):
     font_size = max(12, math.sqrt(amount_m_usd * 2))
     dates = project['start_date'][:4]
     i1 = i_project + 1
-    flag_str = flag.flag(project['country_code']) + \
-        " " if project['country_code'] else ''
+    flag_str = COUNTRY_CODE_TO_FLAG.get(project['country_code']) + ' ' \
+        if project['country_code'] else ''
     return _('tr', [
         _('td', [
             _('div', f'#{i1}', {'class': 'div-row'})

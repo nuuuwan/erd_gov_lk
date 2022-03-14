@@ -1,8 +1,8 @@
 
 from utils import timex
 
-from erd_gov_lk._constants import (COUNTRY_TO_TEXT_LIST, CURRENCY_TO_TEXT_LIST,
-                                   EXCHANGE_RATE_TO_USD)
+from erd_gov_lk._constants import (COUNTRY_CODE_TO_TEXT_LIST,
+                                   CURRENCY_TO_TEXT_LIST, EXCHANGE_RATE_TO_USD)
 
 
 def parse_amount(raw_amount):
@@ -72,7 +72,7 @@ def parse_duration(raw_duration):
 
 
 def parse_country_code(donor_name):
-    for country_code, text_list in COUNTRY_TO_TEXT_LIST.items():
+    for country_code, text_list in COUNTRY_CODE_TO_TEXT_LIST.items():
         for text in text_list:
             if text.lower() in donor_name.lower():
                 return country_code
