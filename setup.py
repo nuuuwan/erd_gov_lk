@@ -29,6 +29,6 @@ setuptools.setup(
         'bs4',
         'pytest',
         'utils-nuuuwan',
-        'flag',
+        'emoji-country-flag',
     ],
 )
