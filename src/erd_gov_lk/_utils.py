@@ -1,6 +1,5 @@
 """Utils."""
 
-import logging
+from utils import logx
 
-logging.basicConfig(level=logging.INFO)
-log = logging.getLogger('erd_gov_lk')
+log = logx.get_logger('erd_gov_lk')
