@@ -26,7 +26,7 @@ jobs:
     - name: Test
       uses: nuuuwan/python-repo-test@v1
 
-    - name: Run - Upload Data
+    - name: Run - Scrape
       run: |
         export PYTHONPATH="$PYTHONPATH:./src"
         python src/erd_gov_lk/scrape.py
@@ -46,6 +46,11 @@ jobs:
         git add .
         git commit -m "Updated data $(date)"
         git push origin data
+
+    - name: Run - Build GitHub Pages
+      run: |
+        export PYTHONPATH="$PYTHONPATH:./src"
+        python src/erd_gov_lk/build_gh_pages.py
 
     - name: Checkout repo branch gh-pages
       uses: actions/checkout@v2
