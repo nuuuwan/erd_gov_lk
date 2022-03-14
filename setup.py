@@ -28,8 +28,6 @@ setuptools.setup(
     install_requires=[
         'bs4',
         'pytest',
-        'selenium',
-        'tweepy',
         'utils-nuuuwan',
     ],
 )
