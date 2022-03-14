@@ -25,7 +25,7 @@ CURRENCY_TO_TEXT_LIST = {
     'GBP': [],
     'JPY': ['Yen'],
     'KWD': ['KD'],
-    'USD': [],
+    'USD': ['US$'],
 }
 
 EXCHANGE_RATE_TO_USD = {
