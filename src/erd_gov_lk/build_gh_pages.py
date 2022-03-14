@@ -1,7 +1,7 @@
 import math
 import os
 
-from utils import tsv
+from utils import timex, tsv
 from utils.xmlx import _, style
 
 from erd_gov_lk._constants import (COUNTRY_CODE_TO_FLAG, DIR_GH_PAGES,
@@ -21,8 +21,8 @@ def render_project(x):
     font_size = max(12, math.sqrt(amount_m_usd * 2))
     dates = project['start_date'][:4]
     i1 = i_project + 1
-    flag_str = COUNTRY_CODE_TO_FLAG.get(project['country_code']) + ' ' \
-        if project['country_code'] else ''
+    flag_str = COUNTRY_CODE_TO_FLAG.get(project['country_code']) \
+        if project['country_code'] else '🌎'
     return _('tr', [
         _('td', [
             _('div', f'#{i1}', {'class': 'div-row'})
@@ -41,7 +41,7 @@ def render_project(x):
             _('div', dates, {'class': 'div-date'}),
             _(
                 'div',
-                flag_str + project['donor_name'],
+                flag_str + ' ' + project['donor_name'],
                 {'class': 'div-donor'},
             ),
             _('a', [
@@ -67,9 +67,13 @@ def build():
             'href': 'styles.css',
         })
     ])
+    date_str = timex.format_time(
+        timex.get_unixtime(),
+        '%B %d, %Y, %I:%M%p, Sri Lanka Time',
+        timezone=timex.TIMEZONE_OFFSET_LK,
+    )
     body = _('body', [
-        _('h3', 'Sri Lanka'),
-        _('h1', 'Loans'),
+        _('h1', '🇱🇰 Sri Lanka\'s Loans'),
         _('p', [
             _('span', 'Source: '),
             _('a', 'Department of External Resources', {
@@ -77,8 +81,9 @@ def build():
             })
         ]),
         table,
+        _('div', f'Last updated {date_str}', {'class': 'div-last-updated'}),
     ])
-    html = _('html', [head, body])
+    html = _('html', [_('meta', None, {'charset': 'UTF-8'}), head, body])
     html_file = os.path.join(DIR_GH_PAGES, 'index.html')
     html.store(html_file)
     log.info(f'Wrote {html_file}')
