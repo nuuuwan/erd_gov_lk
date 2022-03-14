@@ -1,12 +1,18 @@
+import os
 from urllib import parse
 
 from bs4 import BeautifulSoup
 from utils import timex, tsv, www
 
-from erd_gov_lk._constants import (DONOR_LIST_FILE, PROJECT_LIST_FILE, URL_ERD,
-                                   URL_INDEX)
+from erd_gov_lk._constants import (DIR_ROOT, DONOR_LIST_FILE,
+                                   PROJECT_LIST_FILE, URL_ERD, URL_INDEX)
 from erd_gov_lk._utils import log
 from erd_gov_lk.parse_helpers import parse_project
+
+
+def init():
+    os.system(f'rm -rf {DIR_ROOT}')
+    os.system(f'mkdir {DIR_ROOT}')
 
 
 def scrape_donor_list():
@@ -28,10 +34,6 @@ def scrape_donor_list():
     log.info(f'Wrote {n_donor_list} donors to {DONOR_LIST_FILE}')
 
     return donor_list
-
-
-def get_donor_file(donor_id, ext):
-    return f'/tmp/erd_gov_lk.donor.{donor_id}.{ext}'
 
 
 def get_url_donor(donor_id):
@@ -82,15 +84,12 @@ def scrape_donor(donor_id, donor_name):
         project_list.append(project)
 
     n_project_list = len(project_list)
-    if n_project_list > 0:
-        project_file = get_donor_file(donor_id, 'projects.tsv')
-        tsv.write(project_file, project_list)
-        log.info(f'Wrote {n_project_list} projects to {project_file}')
-
+    log.info(f'Found {n_project_list} projects for {donor_id} ({donor_name})')
     return project_list
 
 
 def run():
+    init()
     donor_list = scrape_donor_list()
     all_project_list = []
     for d in donor_list:
@@ -98,6 +97,11 @@ def run():
         donor_name = d['donor_name']
         project_list = scrape_donor(donor_id, donor_name)
         all_project_list += project_list
+
+    all_project_list = sorted(
+        all_project_list,
+        key=lambda d: -d['amount_m_usd'],
+    )
 
     n_all_project_list = len(all_project_list)
     log.info(f'Wrote {n_all_project_list} projects to {PROJECT_LIST_FILE}')
