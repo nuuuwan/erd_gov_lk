@@ -27,7 +27,7 @@ def parse_amount(raw_amount):
                 pass
 
     if not amount:
-        return None, None, None
+        return None, None, 0
 
     if amount < 1_000_000 and amount_mult == 1:
         amount_mult = 1_000_000
