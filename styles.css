@@ -1,5 +1,5 @@
 body {
-  width: 80%;
+  width: 70%;
   margin: auto;
   margin-top: 12px;
 }
@@ -32,7 +32,6 @@ a:hover {
 
 .div-project {
   font-size: 24px;
-  width: 60%;
 }
 
 .div-unit {
@@ -44,4 +43,14 @@ a:hover {
 .div-date {
   font-size: 12px;
   color: gray;
+}
+
+.div-last-updated {
+  text-align: center;
+  font-size: 12px;
+  color: gray;
+}
+
+.div-objectives {
+  color: lightgray;
 }
