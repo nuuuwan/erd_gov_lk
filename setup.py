@@ -2,7 +2,7 @@
 
 import setuptools
 
-DIST_NAME = 'gh_template_py'
+DIST_NAME = 'erd_gov_lk'
 version = '1.0.0'
 
 setuptools.setup(
