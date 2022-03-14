@@ -6,6 +6,9 @@ CACHE_NAME = 'erd_gov_lk'
 CACHE_TIMEOUT = 3600
 
 DIR_ROOT = '/tmp/erd_gov_lk'
+DIR_DATA = os.path.join(DIR_ROOT, 'data')
+DIR_GH_PAGES = os.path.join(DIR_ROOT, 'gh-pages')
+
 URL_ERD = 'http://www.erd.gov.lk/index.php'
 
 URL_INDEX = URL_ERD + '?' + parse.urlencode({
@@ -18,8 +21,8 @@ URL_INDEX = URL_ERD + '?' + parse.urlencode({
     'lang': 'en',
 })
 
-DONOR_LIST_FILE = os.path.join(DIR_ROOT, 'donors.tsv')
-PROJECT_LIST_FILE = os.path.join(DIR_ROOT, 'projects.tsv')
+DONOR_LIST_FILE = os.path.join(DIR_DATA, 'donors.tsv')
+PROJECT_LIST_FILE = os.path.join(DIR_DATA, 'projects.tsv')
 
 CURRENCY_TO_TEXT_LIST = {
     'EUR': ['Euro'],

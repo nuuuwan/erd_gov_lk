@@ -4,8 +4,9 @@ from urllib import parse
 from bs4 import BeautifulSoup
 from utils import timex, tsv, www
 
-from erd_gov_lk._constants import (DIR_ROOT, DONOR_LIST_FILE,
-                                   PROJECT_LIST_FILE, URL_ERD, URL_INDEX)
+from erd_gov_lk._constants import (DIR_DATA, DIR_GH_PAGES, DIR_ROOT,
+                                   DONOR_LIST_FILE, PROJECT_LIST_FILE, URL_ERD,
+                                   URL_INDEX)
 from erd_gov_lk._utils import log
 from erd_gov_lk.parse_helpers import parse_project
 
@@ -13,6 +14,8 @@ from erd_gov_lk.parse_helpers import parse_project
 def init():
     os.system(f'rm -rf {DIR_ROOT}')
     os.system(f'mkdir {DIR_ROOT}')
+    os.system(f'mkdir {DIR_DATA}')
+    os.system(f'mkdir {DIR_GH_PAGES}')
 
 
 def scrape_donor_list():

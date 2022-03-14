@@ -5,7 +5,7 @@ import flag
 from utils import tsv
 from utils.xmlx import _, style
 
-from erd_gov_lk._constants import DIR_ROOT, PROJECT_LIST_FILE, URL_ERD
+from erd_gov_lk._constants import DIR_GH_PAGES, PROJECT_LIST_FILE, URL_ERD
 from erd_gov_lk._utils import log
 
 
@@ -79,13 +79,13 @@ def build():
         table,
     ])
     html = _('html', [head, body])
-    html_file = os.path.join(DIR_ROOT, 'index.html')
+    html_file = os.path.join(DIR_GH_PAGES, 'index.html')
     html.store(html_file)
     log.info(f'Wrote {html_file}')
 
 
 def copy_files():
-    os.system(f'cp src/erd_gov_lk/styles.css {DIR_ROOT}/')
+    os.system(f'cp src/erd_gov_lk/styles.css {DIR_GH_PAGES}/')
 
 
 if __name__ == '__main__':
