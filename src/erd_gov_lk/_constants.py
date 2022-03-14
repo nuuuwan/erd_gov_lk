@@ -36,3 +36,20 @@ EXCHANGE_RATE_TO_USD = {
     'KWD': 3.29,
     'USD': 1,
 }
+
+COUNTRY_TO_TEXT_LIST = {
+    'AT': ['Austria'],
+    'AU': ['Australia'],
+    'BE': ['Belgium'],
+    'CN': ['China'],
+    'ES': ['Spain'],
+    'FR': ['Francaise', 'French', 'France'],
+    'IN': ['India'],
+    'JP': ['Japan'],
+    'KR': ['Korea'],
+    'KW': ['Kuwait'],
+    'RU': ['Russia'],
+    'SA': ['Saudi'],
+    'SE': ['Sweden'],
+    'US': ['United States'],
+}
