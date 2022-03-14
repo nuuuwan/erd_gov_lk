@@ -1,7 +1,8 @@
 
 from utils import timex
 
-from erd_gov_lk._constants import CURRENCY_TO_TEXT_LIST, EXCHANGE_RATE_TO_USD
+from erd_gov_lk._constants import (COUNTRY_TO_TEXT_LIST, CURRENCY_TO_TEXT_LIST,
+                                   EXCHANGE_RATE_TO_USD)
 
 
 def parse_amount(raw_amount):
@@ -70,7 +71,15 @@ def parse_duration(raw_duration):
     return duration, duration_unit, duration_s
 
 
-def parse_project(raw_project):
+def parse_country_code(donor_name):
+    for country_code, text_list in COUNTRY_TO_TEXT_LIST.items():
+        for text in text_list:
+            if text.lower() in donor_name.lower():
+                return country_code
+    return None
+
+
+def parse_project(donor_id, donor_name, raw_project):
     amount, currency, amount_m_usd = parse_amount(raw_project['Amount (USD)'])
     start_date, start_ut = parse_date(raw_project['Commencement Date'])
     end_date, end_ut = parse_date(raw_project.get('Completed On'))
@@ -78,7 +87,10 @@ def parse_project(raw_project):
     duration, duration_unit, duration_unit_ticks = parse_duration(
         raw_project.get('Duration'))
 
+    country_code = parse_country_code(donor_name)
+
     return {
+        'country_code': country_code,
         'project_name': raw_project['Project Name'],
         'is_loan': raw_project['Loan / Grant'].lower() == 'loan',
         'amount_m': amount,
