@@ -1,4 +1,6 @@
 body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 200;
   width: 70%;
   margin: auto;
   margin-top: 12px;
@@ -6,6 +8,8 @@ body {
 
 td {
   padding: 12px;
+  padding-top: 24px;
+  font-weight: 200;
 }
 
 a {
@@ -27,7 +31,7 @@ a:hover {
 
 .div-donor {
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 400;
 }
 
 .div-project {
