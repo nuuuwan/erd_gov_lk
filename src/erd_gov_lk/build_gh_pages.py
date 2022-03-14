@@ -69,7 +69,7 @@ def build():
     ])
     body = _('body', [
         _('h3', 'Sri Lanka'),
-        _('h1', 'Most Expensive Bilateral Loans'),
+        _('h1', 'Loans'),
         _('p', [
             _('span', 'Source: '),
             _('a', 'Department of External Resources', {

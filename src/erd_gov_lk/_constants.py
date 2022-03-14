@@ -11,13 +11,23 @@ DIR_GH_PAGES = os.path.join(DIR_ROOT, 'gh-pages')
 
 URL_ERD = 'http://www.erd.gov.lk/index.php'
 
-URL_INDEX = URL_ERD + '?' + parse.urlencode({
+URL_INDEX_BILATERAL = URL_ERD + '?' + parse.urlencode({
     'option': 'com_rmobilization',
     'view': 'resource_project',
     'category_id': '1',
     'sub_category_id': '1',
     'searchby': 'donor_type',
     'Itemid': '321',
+    'lang': 'en',
+})
+
+URL_INDEX_MULTILATERAL = URL_ERD + '?' + parse.urlencode({
+    'option': 'com_rmobilization',
+    'view': 'resource_project',
+    'category_id': '1',
+    'sub_category_id': '2',
+    'searchby': 'donor_type',
+    'Itemid': '322',
     'lang': 'en',
 })
 
